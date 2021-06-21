@@ -1,4 +1,5 @@
 import { App } from "./App"
+import './database/index'
 
 const app = new App()
 
