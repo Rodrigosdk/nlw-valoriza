@@ -1,6 +1,6 @@
 import {Request,Response} from 'express'
 import {CreateUserServices} from '../services/CreateUserServices'
-import {baseController} from './interfaces/baseController'
+import {baseController} from '../types/controllers/baseController'
 
 export class CreateUserController implements baseController{
     async handle(request:Request, response:Response): Promise<Response>{

@@ -1,6 +1,6 @@
 import {Request,Response} from 'express'
 import {CreateTagServices} from '../services/CreateTagServices'
-import { baseController } from './interfaces/baseController';
+import { baseController } from '../types/controllers/baseController';
 
 export class CreateTagController implements baseController{
     async handle(request:Request, response:Response): Promise<Response>{
