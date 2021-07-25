@@ -1,8 +1,9 @@
 import {Request,Response} from 'express'
 import {CreateUserServices} from '../services/CreateUserServices'
+import {baseController} from './interfaces/baseController'
 
-class CreateUserController{
-    async handle(request:Request, response:Response){
+export class CreateUserController implements baseController{
+    async handle(request:Request, response:Response): Promise<Response>{
         const {name, email, admin, password} = request.body
 
         const createUserServices = new CreateUserServices();
@@ -11,5 +12,3 @@ class CreateUserController{
         return response.json(user);
     }
 }
-
-export {CreateUserController}
