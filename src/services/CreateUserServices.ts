@@ -14,10 +14,10 @@ class CreateUserServices extends Validate {
 
     async execute({ name, email, admin, password }: IUserRequest) {
         const repository = getCustomRepository(UsersRepository)
-        this.email(email)
+        this.email(email, "Email incorrect")
         
         const userAlreadyExists = await repository.findOne({ email })
-        this.userExiste(userAlreadyExists)
+        this.userExiste(userAlreadyExists, "User already exists")
         
         const passwordHash = await hash(password, 8)
         const user = repository.create({ name, email, admin, password: passwordHash })
