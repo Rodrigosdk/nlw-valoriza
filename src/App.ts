@@ -3,13 +3,15 @@ import 'express-async-errors'
 
 import { UserRouter } from './routes/UserRouter'
 import { TagRouter } from './routes/TagRouter'
+import { AuthenticateRouter } from './routes/AuthenticateRouter'
 
-import {error} from './middlewares/Erros'
+import { error } from './middlewares/Erros'
 export class App {
     private app: express.Application
 
     private userRouter: UserRouter = new UserRouter();
     private tagRouter: TagRouter = new TagRouter();
+    private authenticateRouter: AuthenticateRouter = new AuthenticateRouter();
 
     constructor() {
         this.app = express()
@@ -25,6 +27,7 @@ export class App {
         this.app.use(express.json())
         this.userRouter.init(this.app)
         this.tagRouter.init(this.app)
+        this.authenticateRouter.init(this.app)
 
     }
 
